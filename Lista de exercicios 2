@@ -19,3 +19,16 @@ end;
 //
 delimiter ;
 call sp_LivrosPorCategoria('Romance');
+
+-- 3 
+delimiter //
+create procedure sp_ContarLivrosPorCategoria(NomeCategoria VARCHAR(100))
+begin
+select nome as Categoria, COUNT(*) AS QUANTIDADE
+from livro inner join categoria
+where categoria.Nome = NomeCategoria and livro.Categoria_ID = categoria.Categoria_ID
+group by categoria.Nome;
+end;
+//
+delimiter ; 
+call sp_ContarLivrosPorCategoria('Romance');
