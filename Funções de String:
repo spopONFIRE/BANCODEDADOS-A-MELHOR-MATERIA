@@ -1,1 +1,29 @@
+-- Exercicio 1 Completo 
 
+CREATE TABLE nomes (
+    nome VARCHAR(50)
+);
+
+INSERT INTO nomes (nome)
+VALUES
+    ('Pedro'),
+    ('Robert'),
+    ('Maria Clara'),
+    ('João');
+-----
+
+UPDATE nomes
+SET nome = UPPER(nome);
+-----
+
+SELECT nome, LENGTH(nome) AS tamanho FROM nomes;
+-----
+
+UPDATE nomes
+SET nome = CONCAT('Sr. ', nome)
+WHERE nome = 'Roberto' OR nome = 'João';
+
+UPDATE nomes
+SET nome = CONCAT('Sra. ', nome)
+WHERE nome = 'Roberta' OR nome = 'Maria Clara';
+-----
