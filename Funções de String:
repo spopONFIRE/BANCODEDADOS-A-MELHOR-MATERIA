@@ -115,3 +115,51 @@ WHERE preco = (SELECT MIN(preco) FROM produtos);
 
 SELECT SUM(IF(quantidade > 0, preco * quantidade, 0)) AS soma_total_em_estoque FROM produtos;
 -----
+
+-- Exercicio 7 Completo 
+DELIMITER //
+CREATE FUNCTION FATORIAL(n INT)
+RETURNS INT
+BEGIN
+    DECLARE resultado INT;
+    SET resultado = 1;
+    WHILE n > 0 DO
+        SET resultado = resultado * n;
+        SET n = n - 1;
+    END WHILE;
+    RETURN resultado;
+END;
+//
+DELIMITER ;
+-----
+
+DELIMITER //
+CREATE FUNCTION f_exponencial(base DECIMAL(10, 2), expoente INT)
+RETURNS DECIMAL(10, 2)
+BEGIN
+    DECLARE resultado DECIMAL(10, 2);
+    SET resultado = 1;
+    WHILE expoente > 0 DO
+        SET resultado = resultado * base;
+        SET expoente = expoente - 1;
+    END WHILE;
+    RETURN resultado;
+END;
+//
+DELIMITER ;
+-----
+
+DELIMITER //
+CREATE FUNCTION IS_PALINDROMO(palavra VARCHAR(255))
+RETURNS INT
+BEGIN
+    DECLARE palavra_invertida VARCHAR(255);
+    SET palavra_invertida = REVERSE(palavra);
+    IF palavra = palavra_invertida THEN
+        RETURN 1;
+    ELSE
+        RETURN 0;
+    END IF;
+END;
+//
+DELIMITER ;
