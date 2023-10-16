@@ -45,3 +45,27 @@ SELECT produto, ABS(quantidade) AS quantidade_absoluta FROM produtos;
 
 SELECT AVG(preco) AS media_precos FROM produtos;
 -----
+
+-- Exercicio 3 Completo 
+CREATE TABLE eventos (
+    data_evento DATE
+);
+
+INSERT INTO eventos (data_evento)
+VALUES
+    ('2023-10-15'),
+    ('2023-10-20'),
+    ('2023-10-25');
+-----
+
+SELECT DATEDIFF('2023-10-25', '2023-10-15') AS dias_entre_datas;
+-----
+
+SELECT data_evento, DAYNAME(data_evento) AS nome_dia_semana FROM eventos;
+-----
+
+
+INSERT INTO eventos (data_evento)
+VALUES (NOW());
+-----
+
