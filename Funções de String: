@@ -27,3 +27,21 @@ UPDATE nomes
 SET nome = CONCAT('Sra. ', nome)
 WHERE nome = 'Roberta' OR nome = 'Maria Clara';
 -----
+
+-- Exercicio 2 Completo 
+CREATE TABLE produtos (
+    produto VARCHAR(50),
+    preco DECIMAL(10, 2),
+    quantidade INT
+);
+-----
+
+UPDATE produtos
+SET preco = ROUND(preco, 2);
+-----
+
+SELECT produto, ABS(quantidade) AS quantidade_absoluta FROM produtos;
+-----
+
+SELECT AVG(preco) AS media_precos FROM produtos;
+-----
