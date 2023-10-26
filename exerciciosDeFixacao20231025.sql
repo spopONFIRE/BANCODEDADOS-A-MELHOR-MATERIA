@@ -8,3 +8,14 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+--Exercicio 2
+DELIMITER //
+CREATE TRIGGER before_delete_clientes
+BEFORE DELETE ON Clientes
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditoria (...) VALUES (CONCAT('exclusão de cliente', NOW()));
+END;
+//
+DELIMITER ;
